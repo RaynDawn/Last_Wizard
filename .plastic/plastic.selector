@@ -1,0 +1,4 @@
+repository "Last Wizard@tj_rayn_dawn@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"
