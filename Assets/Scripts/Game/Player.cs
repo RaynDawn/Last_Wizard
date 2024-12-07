@@ -6,6 +6,7 @@ namespace LastWizard
 	public partial class Player : ViewController
 	{
 	    public float movementSpeed = 5;
+		public float health = 5;
 		public static Player Default;
 
         private void Awake()
@@ -22,6 +23,7 @@ namespace LastWizard
 			// Code Here
 			HurtBox.OnTriggerEnter2DEvent(Collider2D => 
 			{
+				
 				this.DestroyGameObjGracefully();
 
 				UIKit.OpenPanel<GameOverPanel>();

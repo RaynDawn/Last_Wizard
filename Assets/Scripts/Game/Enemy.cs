@@ -24,7 +24,9 @@ namespace LastWizard
 			if(health <= 0 )
             {
 				this.DestroyGameObjGracefully();
-				UIKit.OpenPanel<GamePassPanel>();
+				Global.Exp.Value++;//销毁时加经验值
+				 // UIKit.OpenPanel<GamePassPanel>();
+
             }
     }
 }
