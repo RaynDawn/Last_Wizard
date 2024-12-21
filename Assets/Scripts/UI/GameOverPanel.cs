@@ -20,7 +20,8 @@ namespace LastWizard
                 {
 					SceneManager.LoadScene("SampleScene");
 					this.CloseSelf();
-                }
+					Global.ResetData();
+				}
 			}
 			).UnRegisterWhenGameObjectDestroyed(gameObject);
 		}

@@ -15,7 +15,7 @@ namespace LastWizard
         {
 			mCurrentSeconds += Time.deltaTime;
 
-			if(mCurrentSeconds >=  1.5) //…À∫¶º‰∏Ù
+			if(mCurrentSeconds >=  Global.SampleAbilityRate.Value) //…À∫¶º‰∏Ù
             {
 				mCurrentSeconds = 0;
 				var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude,FindObjectsSortMode.None);
@@ -24,16 +24,9 @@ namespace LastWizard
                 {
 					var distance = (Player.Default.transform.position - enemy.transform.position).magnitude;
 
-					if(distance < 3) //…À∫¶æ‡¿Î
+					if(distance <= 3) //…À∫¶æ‡¿Î
                     {
-						enemy.Sprite.color = Color.red;
-						var enemyRefCache = enemy;
-						ActionKit.Delay(0.3f,() =>
-						{
-							enemyRefCache.Sprite.color = Color.white;
-							enemyRefCache.health -= Global.SampleAbilityDamage.Value;
-						}).StartGlobal();
-							
+						enemy.Hurt(Global.SampleAbilityDamage.Value);
                     }
                 }
             }

@@ -5,7 +5,7 @@ using QFramework;
 
 namespace LastWizard
 {
-	// Generate Id:56c7761d-5623-426a-ab66-fa9d917c77c8
+	// Generate Id:4f6efe69-8a58-4198-9a96-af0fb837a909
 	public partial class GamePassPanel
 	{
 		public const string Name = "GamePassPanel";

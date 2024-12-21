@@ -10,24 +10,45 @@ namespace LastWizard
 		void Start()
 		{
 			// Code Here
+			Global.EnemyCount.Value++;
 		}
-
-    private void Update()
-    {
-			if(Player.Default)
-            {
-				// var player = FindObjectOfType<Player>();
+        private void FixedUpdate()
+        {
+			if (Player.Default)
+			{
 				var direction = (Player.Default.transform.position - transform.position).normalized;
-				transform.Translate(direction * Time.deltaTime * movementSpeed);
+				
+				SelfRigidbody2D.velocity = direction * movementSpeed;
 			}
-			
+			else
+            {
+				SelfRigidbody2D.velocity = Vector2.zero;
+            }
+		}
+        private void Update()
+		 {
 			if(health <= 0 )
             {
 				this.DestroyGameObjGracefully();
-				Global.Exp.Value++;//销毁时加经验值
-				 // UIKit.OpenPanel<GamePassPanel>();
-
-            }
-    }
-}
+				Global.EnemyCount.Value--;
+				Global.GenerateDrop(gameObject);
+			}
+		 }
+		 private bool IgnoreHurt = false;
+		public void Hurt(float value)
+        {
+			if (IgnoreHurt) return;
+            
+				Sprite.color = Color.red;
+			    AudioKit.PlaySound("hurt");
+			ActionKit.Delay(0.3f, () =>
+				{
+					this.Sprite.color = Color.white;
+					this.health -= Global.SampleAbilityDamage.Value;
+					IgnoreHurt = false;
+				}).Start(this);
+			
+			
+		}
+	}
 }

@@ -5,7 +5,7 @@ using QFramework;
 
 namespace LastWizard
 {
-	// Generate Id:eb21f7f6-c94c-4fee-ae46-70677caf0129
+	// Generate Id:8f5746a8-eb4d-41a6-9c86-5f31be5666f5
 	public partial class GamePanel
 	{
 		public const string Name = "GamePanel";
@@ -13,20 +13,35 @@ namespace LastWizard
 		[SerializeField]
 		public UnityEngine.UI.Text ExpText;
 		[SerializeField]
+		public UnityEngine.UI.Text HpText;
+		[SerializeField]
+		public UnityEngine.UI.Text CoinText;
+		[SerializeField]
 		public UnityEngine.UI.Text LvText;
 		[SerializeField]
 		public UnityEngine.UI.Text TimeText;
 		[SerializeField]
+		public UnityEngine.UI.Text EnemyCountText;
+		[SerializeField]
+		public RectTransform UpgradeRoot;
+		[SerializeField]
 		public UnityEngine.UI.Button BtnUpgrade;
+		[SerializeField]
+		public UnityEngine.UI.Button BtnUpgrade2;
 		
 		private GamePanelData mPrivateData = null;
 		
 		protected override void ClearUIComponents()
 		{
 			ExpText = null;
+			HpText = null;
+			CoinText = null;
 			LvText = null;
 			TimeText = null;
+			EnemyCountText = null;
+			UpgradeRoot = null;
 			BtnUpgrade = null;
+			BtnUpgrade2 = null;
 			
 			mData = null;
 		}

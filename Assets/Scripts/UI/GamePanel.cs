@@ -13,6 +13,11 @@ namespace LastWizard
 		{
 			mData = uiData as GamePanelData ?? new GamePanelData();
 			// please add init code here
+			Global.Hp.RegisterWithInitValue(hp =>
+			{
+				HpText.text = "HP: " + hp;
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);//每次生命值变更时回调执行
+
 			Global.Exp.RegisterWithInitValue(exp =>
 			{
 				ExpText.text = "EXP: " + exp;
@@ -26,38 +31,73 @@ namespace LastWizard
 			Global.Lv.Register(lv =>
 			{
 				Time.timeScale = 0;//升级时游戏暂停
-				BtnUpgrade.Show();//升级时弹出升级选项
+				UpgradeRoot.Show();//升级时弹出升级选项
 
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);//初始化之后的每一次等级变更时执行
 
 			Global.Exp.RegisterWithInitValue(exp =>
 			{
-				if(exp >= 5)
+				if(exp >= Global.LevelUpExp())
                 {
-					Global.Exp.Value -= 5;
+					Global.Exp.Value = 0;
 					Global.Lv.Value ++;
+					AudioKit.PlaySound("rise");
                 }
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 
-			Global.CurrentTime.RegisterWithInitValue(seconds =>
+			Global.CurrentTime.RegisterWithInitValue(secondsTemp =>
 			{
+				
 				if(Time.frameCount % 30 == 0)
                 {
-					TimeText.text = "Time: " + seconds;
+					var secondsInt = Mathf.FloorToInt(secondsTemp);
+					var seconds = secondsInt % 60;
+					var minutes = secondsInt / 60;
+					TimeText.text = "Time: " + $"{minutes:00}:{seconds:00}";
 				}
+				var player = Player.Default;
+				if (player == null)
+                {
+					secondsTemp = 0;	
+                }
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 
+			Global.Coin.Value = PlayerPrefs.GetInt("coins", 0);
+
+			Global.Coin.RegisterWithInitValue(coins =>//金币数量
+			{
+				PlayerPrefs.SetInt(nameof(coins), coins);
+
+				CoinText.text = "COIN: " + coins;
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 			
-			BtnUpgrade.onClick.AddListener(() =>
+			BtnUpgrade.onClick.AddListener(() =>//升级攻击伤害
 			{
 				Time.timeScale = 1.0f;
 				Global.SampleAbilityDamage.Value++;
-				BtnUpgrade.Hide();
+				UpgradeRoot.Hide();
 			});
 
+			BtnUpgrade2.onClick.AddListener(() =>//升级攻击间隔
+			{
+				Time.timeScale = 1.0f;
+				Global.SampleAbilityRate.Value *= 0.8f;
+				UpgradeRoot.Hide();
+			});
+
+			Global.EnemyCount.RegisterWithInitValue(enemyCount =>//敌人数量
+			{
+				EnemyCountText.text = "ENEMY: " + enemyCount;
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+			var enemyGenerator = FindAnyObjectByType<EnemyGenerator>();
 			ActionKit.OnUpdate.Register(() =>
 			{
 				Global.CurrentTime.Value += Time.deltaTime;
+				if(Global.CurrentTime.Value >= 180 && enemyGenerator.lastWave && !FindAnyObjectByType<Enemy>() && enemyGenerator.Wave == null && Global.EnemyCount.Value == 0)//当游戏持续时间超过一定时长 且 最后一波 且 没有敌人存在 且 波次结束 且 敌人数量为0
+                {
+					UIKit.OpenPanel<GamePassPanel>();
+                }
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 		}
 		

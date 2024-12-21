@@ -19,15 +19,19 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: LastWizard.Enemy
-      PathToRoot: Enemy
-      MemberName: Enemy
+    - TypeName: SpriteRenderer
+      PathToRoot: Sprite
+      MemberName: Sprite
+    - TypeName: Collider2D
+      PathToRoot: HitBox
+      MemberName: HitBox
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: EnemyGenerator
+    ClassName: Enemy
     Namespace: LastWizard
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace LastWizard\r\n{\r\n\tpublic
-      partial class EnemyGenerator : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class Enemy : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:89b57541-a1cd-48f1-9faf-d474e1e74ea2\r\nusing UnityEngine;\r\n\r\nnamespace
-      LastWizard\r\n{\r\n\tpublic partial class EnemyGenerator\r\n\t{\r\n\r\n\t\tpublic
-      LastWizard.Enemy Enemy;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:5d87a974-065f-414d-9c76-c2f869b788ad\r\nusing UnityEngine;\r\n\r\nnamespace
+      LastWizard\r\n{\r\n\tpublic partial class Enemy\r\n\t{\r\n\r\n\t\tpublic SpriteRenderer
+      Sprite;\r\n\r\n\t\tpublic Collider2D HitBox;\r\n\r\n\t\tpublic UnityEngine.Rigidbody2D
+      SelfRigidbody2D;\r\n\r\n\t}\r\n}\r\n"

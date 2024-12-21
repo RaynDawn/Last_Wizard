@@ -301,10 +301,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GamePassPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 5845902052397730287, guid: eba3c27f661bdf944813835de1508815, type: 3}
-      propertyPath: m_Text
-      value: Game Pass
-      objectReference: {fileID: 0}
     - target: {fileID: 8173188938918792803, guid: eba3c27f661bdf944813835de1508815, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
