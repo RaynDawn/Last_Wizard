@@ -19,19 +19,15 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: SpriteRenderer
-      PathToRoot: Sprite
-      MemberName: Sprite
-    - TypeName: Collider2D
-      PathToRoot: HitBox
-      MemberName: HitBox
+    - TypeName: LastWizard.Bomb
+      PathToRoot: Bomb
+      MemberName: Bomb
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: Enemy
+    ClassName: BombAbility
     Namespace: LastWizard
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace LastWizard\r\n{\r\n\tpublic
-      partial class Enemy : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class BombAbility : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:5d87a974-065f-414d-9c76-c2f869b788ad\r\nusing UnityEngine;\r\n\r\nnamespace
-      LastWizard\r\n{\r\n\tpublic partial class Enemy\r\n\t{\r\n\r\n\t\tpublic SpriteRenderer
-      Sprite;\r\n\r\n\t\tpublic Collider2D HitBox;\r\n\r\n\t\tpublic UnityEngine.Rigidbody2D
-      SelfRigidbody2D;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:2bb0c39b-915c-43e1-950f-1dbed6edc312\r\nusing UnityEngine;\r\n\r\nnamespace
+      LastWizard\r\n{\r\n\tpublic partial class BombAbility\r\n\t{\r\n\r\n\t\tpublic
+      LastWizard.Bomb Bomb;\r\n\r\n\t}\r\n}\r\n"

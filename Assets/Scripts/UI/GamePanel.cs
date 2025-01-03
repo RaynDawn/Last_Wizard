@@ -13,14 +13,20 @@ namespace LastWizard
 		{
 			mData = uiData as GamePanelData ?? new GamePanelData();
 			// please add init code here
+			
 			Global.Hp.RegisterWithInitValue(hp =>
 			{
-				HpText.text = "HP: " + hp;
+				HpText.text = "HP: " + Global.Hp.Value + "/" + Global.MaxHp.Value;
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);//每次生命值变更时回调执行
+
+			Global.MaxHp.RegisterWithInitValue(maxhp =>
+			{
+				HpText.text = "HP: " + Global.Hp.Value + "/" + Global.MaxHp.Value;
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);//每次最大生命值变更时回调执行
 
 			Global.Exp.RegisterWithInitValue(exp =>
 			{
-				ExpText.text = "EXP: " + exp;
+				ExpText.text = "EXP: " + exp + "/" + Global.LevelUpExp();
             }).UnRegisterWhenGameObjectDestroyed(gameObject);//每次经验值变更时回调执行
 
 			Global.Lv.RegisterWithInitValue(lv =>
@@ -40,10 +46,11 @@ namespace LastWizard
 				if(exp >= Global.LevelUpExp())
                 {
 					Global.Exp.Value = 0;
-					Global.Lv.Value ++;
+					Global.Lv.Value++;
+					Global.MaxHp.Value++;
 					AudioKit.PlaySound("rise");
                 }
-			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);//升级
 
 			Global.CurrentTime.RegisterWithInitValue(secondsTemp =>
 			{

@@ -15,8 +15,10 @@ namespace LastWizard
         public static BindableProperty<float> CurrentTime = new BindableProperty<float>(0);//时间
         public static BindableProperty<int> EnemyCount = new BindableProperty<int>(0); //怪物数量
         public static BindableProperty<float> SampleAbilityRate = new BindableProperty<float>(1.5f);//攻击间隔
+        public static BindableProperty<float> BombAbilityRate = new BindableProperty<float>(10);//技能间隔
         public static BindableProperty<int> Coin = new BindableProperty<int>(0);//金币
         public static BindableProperty<int> Hp = new BindableProperty<int>(5);//生命值
+        public static BindableProperty<int> MaxHp = new BindableProperty<int>(5);//最大生命值
 
         #endregion 
 
@@ -27,9 +29,11 @@ namespace LastWizard
             Lv.Value = 1;
             SampleAbilityDamage.Value = 1;
             SampleAbilityRate.Value = 1.5f;
+            BombAbilityRate.Value = 10;
             CurrentTime.Value = 0;
             EnemyCount.Value = 0;
-            Hp.Value = 5;
+            MaxHp.Value = 5;
+            Hp.Value = MaxHp.Value;
         }
 
         public static int LevelUpExp()
@@ -43,10 +47,28 @@ namespace LastWizard
             if(random <= 90)
             {
                 DropManager.Default.EXP.Instantiate().Position(gameObject.Position()).Show(); //生成经验掉落
+                return;
             }
-            else
+            
+            random = Random.Range(0, 100f);
+            if (random <= 5)
             {
                 DropManager.Default.Coin.Instantiate().Position(gameObject.Position()).Show();//生成金币
+                return;
+            }
+
+            random = Random.Range(0, 100f);
+            if (random <= 10)
+            {
+                DropManager.Default.HP.Instantiate().Position(gameObject.Position()).Show();//生成血瓶
+                return;
+            }
+
+            random = Random.Range(0, 100f);
+            if(random <= 5)
+            {
+                DropManager.Default.GetAllExp.Instantiate().Position(gameObject.Position()).Show();//生成经验自动拾取
+                return;
             }
                
         }
@@ -55,6 +77,12 @@ namespace LastWizard
         {
             ResKit.Init();
             UIKit.Root.SetResolution(1980, 1080,1);
+            Global.Hp.Value = Global.MaxHp.Value;
+            Global.MaxHp.Value = PlayerPrefs.GetInt(nameof(MaxHp), 5);//初始化最大生命值
+            Global.MaxHp.Register(maxhp =>
+            {
+                PlayerPrefs.SetInt(nameof(MaxHp), maxhp);//加载最大生命值
+            });
         }
         void Start()
         {

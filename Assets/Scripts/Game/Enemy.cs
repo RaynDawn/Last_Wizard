@@ -39,12 +39,12 @@ namespace LastWizard
         {
 			if (IgnoreHurt) return;
             
-				Sprite.color = Color.red;
-			    AudioKit.PlaySound("hurt");
+			Sprite.color = Color.red;
+			AudioKit.PlaySound("hurt");
 			ActionKit.Delay(0.3f, () =>
 				{
 					this.Sprite.color = Color.white;
-					this.health -= Global.SampleAbilityDamage.Value;
+					this.health -= value;
 					IgnoreHurt = false;
 				}).Start(this);
 			

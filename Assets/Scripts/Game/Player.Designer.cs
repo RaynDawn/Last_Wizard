@@ -1,4 +1,4 @@
-// Generate Id:5d3f51e7-10bf-4285-b2cf-35ed7d426df2
+// Generate Id:557bc56f-4d97-444d-828b-17688f02aa5e
 using UnityEngine;
 
 namespace LastWizard
@@ -8,7 +8,7 @@ namespace LastWizard
 
 		public SpriteRenderer Sprite;
 
-		public Transform HurtBox;
+		public Collider2D HurtBox;
 
 		public UnityEngine.Rigidbody2D SelfRigidbody2D;
 
