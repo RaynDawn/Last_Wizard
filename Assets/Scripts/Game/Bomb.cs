@@ -1,11 +1,13 @@
 using UnityEngine;
 using QFramework;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace LastWizard
 {
 	public partial class Bomb : ViewController
 	{
-		private float mCurrentSeconds = 0;
+        /*private float mCurrentSeconds = 0;
 		void Start()
 		{
 			HitBox.OnTriggerEnter2DEvent(Collider2D =>
@@ -56,6 +58,50 @@ namespace LastWizard
 				
 				
 			
+		}*/
+
+        private float mCurrentSeconds = 0;
+
+        private void Start()
+        {
+            HitBox.OnTriggerEnter2DEvent(Collider2D =>
+            {
+                var hitBox = Collider2D.GetComponent<Collider2D>();
+                if (hitBox != null)
+                {
+                    if (hitBox.gameObject.transform.parent.CompareTag("Enemy"))
+                    {
+						mCurrentSeconds = 99;
+                    }
+                }
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+        }
+
+        private void Update()
+        {
+            mCurrentSeconds += Time.deltaTime;
+            if (mCurrentSeconds >= 3)
+			{
+				Explode();
+                AudioKit.PlaySound("bomb");
+                this.DestroyGameObjGracefully();
+            }
+        }
+
+		void Explode()
+		{
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 5);
+            if (hits.Length > 0)
+            {
+                foreach (Collider2D hit in hits)
+                {
+                    if (hit.transform.parent.CompareTag("Enemy"))
+                    {
+                        hit.transform.parent.GetComponent<Enemy>().Hurt(9999);
+						
+                    }
+                }
+            }
 		}
-	}
+    }
 }
