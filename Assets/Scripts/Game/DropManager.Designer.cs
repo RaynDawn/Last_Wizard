@@ -1,4 +1,4 @@
-// Generate Id:a3808ac6-4a94-4d37-8135-785db6ff9242
+// Generate Id:c188c30d-ba35-4dc9-8ab7-b58c01c7b77d
 using UnityEngine;
 
 namespace LastWizard
@@ -8,11 +8,11 @@ namespace LastWizard
 
 		public LastWizard.EXP EXP;
 
-		public LastWizard.Coin Coin;
-
 		public LastWizard.GetAllExp GetAllExp;
 
-		public CircleCollider2D HP;
+		public LastWizard.Coin Coin;
+
+		public LastWizard.HP HP;
 
 	}
 }

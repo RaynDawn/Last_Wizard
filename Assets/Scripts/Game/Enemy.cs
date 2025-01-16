@@ -38,7 +38,7 @@ namespace LastWizard
 		public void Hurt(float value)
         {
 			if (IgnoreHurt) return;
-            
+			TextController.PlayFloatingText(transform.position, value.ToString());
 			Sprite.color = Color.red;
 			AudioKit.PlaySound("hurt");
 			ActionKit.Delay(0.3f, () =>

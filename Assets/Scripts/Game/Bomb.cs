@@ -7,71 +7,21 @@ namespace LastWizard
 {
 	public partial class Bomb : ViewController
 	{
-        /*private float mCurrentSeconds = 0;
-		void Start()
-		{
-			HitBox.OnTriggerEnter2DEvent(Collider2D =>
-			{
-				var hitBox = Collider2D.GetComponent<Collider2D>();
-				if (hitBox != null)
-				{
-					if (hitBox.gameObject.transform.parent.CompareTag("Enemy"))
-					{
-						var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-						foreach (Enemy enemy in enemies)
-						{
-							{
-								var distance = (this.transform.position - enemy.transform.position).magnitude;
-
-								if (distance <= 5) //ÉËº¦¾àÀë
-								{
-									enemy.Hurt(enemy.health);
-								}
-							}
-						}
-						AudioKit.PlaySound("bomb");
-						this.DestroyGameObjGracefully();
-					}
-				}
-			}).UnRegisterWhenGameObjectDestroyed(gameObject);
-		}
-        private void Update()
-        {
-			mCurrentSeconds += Time.deltaTime;
-
-			if (mCurrentSeconds >= 3)
-			{
-				mCurrentSeconds = 0;
-				var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-				foreach (Enemy enemy in enemies)
-				{
-						var distance = (this.transform.position - enemy.transform.position).magnitude;
-
-						if (distance <= 5) //ÉËº¦¾àÀë
-						{
-							enemy.Hurt(enemy.health);
-						}
-				}
-				AudioKit.PlaySound("bomb");
-				this.DestroyGameObjGracefully();
-			}
-				
-				
-			
-		}*/
-
         private float mCurrentSeconds = 0;
 
         private void Start()
         {
-            HitBox.OnTriggerEnter2DEvent(Collider2D =>
+            this.OnTriggerEnter2DEvent(Collider2D =>
             {
-                var hitBox = Collider2D.GetComponent<Collider2D>();
-                if (hitBox != null)
+                if (Collider2D.gameObject.tag != "Enemy") return;
+
+                var hurtBox = Collider2D.GetComponent<HurtBox>();
+              
+                if (hurtBox)
                 {
-                    if (hitBox.gameObject.transform.parent.CompareTag("Enemy"))
+                    if (hurtBox.Owner.CompareTag("Enemy"))
                     {
-						mCurrentSeconds = 99;
+                        mCurrentSeconds = 99;
                     }
                 }
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
@@ -80,28 +30,35 @@ namespace LastWizard
         private void Update()
         {
             mCurrentSeconds += Time.deltaTime;
-            if (mCurrentSeconds >= 3)
+            if (mCurrentSeconds >= 3) //±¬Õ¨ÑÓÊ±Ê±¼ä
 			{
 				Explode();
-                AudioKit.PlaySound("bomb");
-                this.DestroyGameObjGracefully();
-            }
+				CameraController.Shake();
+				AudioKit.PlaySound("bomb");
+				this.DestroyGameObjGracefully();
+			}
         }
 
 		void Explode()
 		{
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 5);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, Global.BombAbilityRange.Value);
             if (hits.Length > 0)
             {
                 foreach (Collider2D hit in hits)
                 {
-                    if (hit.transform.parent.CompareTag("Enemy"))
+                    //if (hit.gameObject.tag != "Enemy") return;
+                    var hurtBox = hit.GetComponent<HurtBox>();
+                    if (hurtBox)
                     {
-                        hit.transform.parent.GetComponent<Enemy>().Hurt(9999);
-						
+                        if (hurtBox.Owner.CompareTag("Enemy"))
+                        {
+                            hurtBox.Owner.GetComponent<Enemy>().Hurt(Global.BombAbilityDamage.Value);
+                        }
                     }
                 }
             }
+
+			
 		}
     }
 }

@@ -41,6 +41,12 @@ namespace LastWizard
 
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);//初始化之后的每一次等级变更时执行
 
+			Global.GuardNum.Register(num =>
+			{
+				Debug.Log(num);
+				FindObjectOfType<GuardAbility>().GuardUpgrade(num);
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);//每次守卫数量变更时回调执行
+
 			Global.Exp.RegisterWithInitValue(exp =>
 			{
 				if(exp >= Global.LevelUpExp())

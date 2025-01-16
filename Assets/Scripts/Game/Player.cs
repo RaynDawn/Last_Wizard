@@ -24,10 +24,33 @@ namespace LastWizard
 			
 			HurtBox.OnTriggerEnter2DEvent(Collider2D => 
 			{
-				var hitBox = Collider2D.GetComponent<Collider2D>();
-				if (hitBox != null)
+				if (Collider2D.gameObject.tag != "Enemy") return;
+
+				var hurtBox = Collider2D.GetComponent<HurtBox>();
+				if (hurtBox)
+				{
+					if (hurtBox.Owner.CompareTag("Enemy"))
+					{
+						Global.Hp.Value--;
+					}
+				}
+				if (Global.Hp.Value <= 0)
+				{
+					AudioKit.PlaySound("die");
+					this.DestroyGameObjGracefully();
+					UIKit.OpenPanel<GameOverPanel>();
+				}
+				else
+				{
+					AudioKit.PlaySound("pain");
+				}
+
+				/*Enemy e;
+				var hit = Collider2D.gameObject.transform.parent.GetComponent<Enemy>();
+				//var test = Collider2D.gameObject.transform.parent.TryGetComponent<Enemy>(out e);
+				if (hit)
                 {
-					if (hitBox.gameObject.transform.parent.CompareTag("Enemy"))
+					if (hit.gameObject.transform.parent.CompareTag("Enemy"))
                     {
 						Global.Hp.Value--;
 						
@@ -42,7 +65,7 @@ namespace LastWizard
 							AudioKit.PlaySound("pain");
 						}
 					}
-                }
+                }*/
 				
 			
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);

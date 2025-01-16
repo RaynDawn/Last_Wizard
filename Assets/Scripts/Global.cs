@@ -15,10 +15,15 @@ namespace LastWizard
         public static BindableProperty<float> CurrentTime = new BindableProperty<float>(0);//时间
         public static BindableProperty<int> EnemyCount = new BindableProperty<int>(0); //怪物数量
         public static BindableProperty<float> SampleAbilityRate = new BindableProperty<float>(1.5f);//攻击间隔
-        public static BindableProperty<float> BombAbilityRate = new BindableProperty<float>(10);//技能间隔
+        public static BindableProperty<float> BombAbilityRate = new BindableProperty<float>(5);//技能间隔
         public static BindableProperty<int> Coin = new BindableProperty<int>(0);//金币
         public static BindableProperty<int> Hp = new BindableProperty<int>(5);//生命值
         public static BindableProperty<int> MaxHp = new BindableProperty<int>(5);//最大生命值
+        public static BindableProperty<float> BombAbilityDamage = new BindableProperty<float>(99);//炸弹伤害
+        public static BindableProperty<float> BombAbilityRange = new BindableProperty<float>(5);//炸弹范围
+        public static BindableProperty<float> DestroyTime = new BindableProperty<float>(10);//炸弹引信延时时间
+        public static BindableProperty<float> CritRate = new BindableProperty<float>(0.1f);//暴击率
+        public static BindableProperty<int> GuardNum = new BindableProperty<int>(0);
 
         #endregion 
 
@@ -29,11 +34,16 @@ namespace LastWizard
             Lv.Value = 1;
             SampleAbilityDamage.Value = 1;
             SampleAbilityRate.Value = 1.5f;
-            BombAbilityRate.Value = 10;
+            BombAbilityRate.Value = 5;
             CurrentTime.Value = 0;
             EnemyCount.Value = 0;
             MaxHp.Value = 5;
             Hp.Value = MaxHp.Value;
+            BombAbilityDamage.Value = 99;
+            BombAbilityRange.Value = 5;
+            DestroyTime.Value = 10;
+            CritRate.Value = 0.1f;
+            GuardNum.Value = 0;
         }
 
         public static int LevelUpExp()

@@ -18,16 +18,12 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos:
-    - TypeName: LastWizard.Bomb
-      PathToRoot: Bomb
-      MemberName: Bomb
+    BindInfos: []
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: BombAbility
+    ClassName: AudioManager
     Namespace: LastWizard
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace LastWizard\r\n{\r\n\tpublic
-      partial class BombAbility : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class AudioManager : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:2bb0c39b-915c-43e1-950f-1dbed6edc312\r\nusing UnityEngine;\r\n\r\nnamespace
-      LastWizard\r\n{\r\n\tpublic partial class BombAbility\r\n\t{\r\n\r\n\t\tpublic
-      LastWizard.Bomb Bomb;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:11a5de92-f286-4168-9304-98159b8873b7\r\nusing UnityEngine;\r\n\r\nnamespace
+      LastWizard\r\n{\r\n\tpublic partial class AudioManager\r\n\t{\r\n\r\n\t}\r\n}\r\n"
