@@ -20,10 +20,10 @@ MonoBehaviour:
     NameToFullName: []
     BindInfos: []
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: AudioManager
+    ClassName: HitBox
     Namespace: LastWizard
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace LastWizard\r\n{\r\n\tpublic
-      partial class AudioManager : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class HitBox : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:11a5de92-f286-4168-9304-98159b8873b7\r\nusing UnityEngine;\r\n\r\nnamespace
-      LastWizard\r\n{\r\n\tpublic partial class AudioManager\r\n\t{\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:0049f189-913b-4259-8e45-c0d00e90cbe3\r\nusing UnityEngine;\r\n\r\nnamespace
+      LastWizard\r\n{\r\n\tpublic partial class HitBox\r\n\t{\r\n\r\n\t}\r\n}\r\n"

@@ -1,4 +1,4 @@
-// Generate Id:1f0c1c42-40b7-41f9-84fa-86db38519bad
+// Generate Id:081d239d-dbb5-428d-a101-dcd946eef275
 using UnityEngine;
 
 namespace LastWizard
@@ -7,6 +7,8 @@ namespace LastWizard
 	{
 
 		public LastWizard.Enemy Enemy;
+
+		public Rigidbody2D EnemyBoss;
 
 	}
 }

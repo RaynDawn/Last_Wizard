@@ -44,6 +44,7 @@ namespace LastWizard
                             {
 								if (hurtBox.Owner.CompareTag("Enemy"))
 								{
+									
 									hurtBox.Owner.GetComponent<Enemy>().Hurt(Global.SampleAbilityDamage.Value);
 
 									hp--;

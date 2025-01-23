@@ -3,7 +3,7 @@ using QFramework;
 
 namespace LastWizard
 {
-	public partial class Enemy : ViewController
+	public partial class Enemy : ViewController,IEnemy
 	{
 		public float movementSpeed = 3;
 		public float health = 3;
@@ -11,6 +11,11 @@ namespace LastWizard
 		{
 			// Code Here
 			Global.EnemyCount.Value++;
+		}
+
+        private void OnDestroy()
+        {
+			Global.EnemyCount.Value--;
 		}
         private void FixedUpdate()
         {
@@ -30,7 +35,7 @@ namespace LastWizard
 			if(health <= 0 )
             {
 				this.DestroyGameObjGracefully();
-				Global.EnemyCount.Value--;
+				
 				Global.GenerateDrop(gameObject);
 			}
 		 }

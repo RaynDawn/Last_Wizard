@@ -117,6 +117,7 @@ public class GetInterestPointAction : Action
 
         List<Enemy> enemies = GameObject.FindObjectsOfType<Enemy>().ToList();
         List<EXP> exps = GameObject.FindObjectsOfType<EXP>().ToList();
+        List<HP> hps = GameObject.FindObjectsOfType<HP>().ToList();
 
         // return if one of the list is empty
         if (exps.Count == 0 || enemies.Count == 0) return result;
@@ -148,6 +149,21 @@ public class GetInterestPointAction : Action
                 grids[gridPos]++;
             else
                 grids[gridPos] = 1;
+        }
+       
+        foreach (HP hp in hps)
+        {
+            float hpPrecent = Global.Hp.Value / Global.MaxHp.Value;
+            if (hpPrecent >= 1) break;
+            Vector2Int gridPos = new Vector2Int(
+                Mathf.FloorToInt(hp.transform.position.x / size),
+                Mathf.FloorToInt(hp.transform.position.y / size));
+
+            if (grids.ContainsKey(gridPos))
+                grids[gridPos]+= (hpPrecent > 0.5f) ? 2 : 99;
+            else
+                grids[gridPos] = (hpPrecent > 0.5f) ? 2 : 99 ;
+
         }
 
         int highestDensity = 0;

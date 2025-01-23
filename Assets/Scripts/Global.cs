@@ -68,7 +68,7 @@ namespace LastWizard
             }
 
             random = Random.Range(0, 100f);
-            if (random <= 10)
+            if (random <= 30)
             {
                 DropManager.Default.HP.Instantiate().Position(gameObject.Position()).Show();//Éú³ÉÑªÆ¿
                 return;

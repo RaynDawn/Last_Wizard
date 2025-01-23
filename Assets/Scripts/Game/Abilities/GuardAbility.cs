@@ -24,6 +24,7 @@ namespace LastWizard
 
 		public void GuardUpgrade(int num)
         {
+			num = Mathf.Clamp(num, 0, 3);
 			if(guard.Count > 0)
             {
 				Debug.Log(guard.Count);
@@ -89,10 +90,9 @@ namespace LastWizard
 			if (mCurrentSeconds >= 10)
             {
 				mCurrentSeconds = 0;
+				if (Global.GuardNum.Value <= 3)
+					Global.GuardNum.Value++;
 
-				Global.GuardNum.Value++;
-
-				
 			}
 			transform.rotation = Quaternion.Euler(0, 0, Time.time * 60);
 
