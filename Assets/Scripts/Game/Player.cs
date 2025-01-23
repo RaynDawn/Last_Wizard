@@ -9,6 +9,8 @@ namespace LastWizard
 		
 		public static Player Default;
 
+		[SerializeField] bool isPlayerControl = false;
+
         private void Awake()
         {
             Player.Default = this;
@@ -73,13 +75,22 @@ namespace LastWizard
 
 		void Update()
 		 {
+            if (isPlayerControl)
+            {
+				Movement();
+            }
+            
+
+        }
+
+		void Movement()
+		{
             var horizontal = Input.GetAxis("Horizontal");
             var vertical = Input.GetAxis("Vertical");
 
             var direction = new Vector2(horizontal, vertical).normalized;
 
             SelfRigidbody2D.velocity = direction * movementSpeed;
-
         }
 }
 }

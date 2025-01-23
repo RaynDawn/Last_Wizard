@@ -10810,6 +10810,52 @@ MonoBehaviour:
   CustomComponentName: Knife
   CustomComment: 
   mComponentName: Rigidbody2D
+--- !u!1 &1379929600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1379929602}
+  - component: {fileID: 1379929601}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1379929601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379929600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8823e11ae96ee7749b96fcbe91ed0781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 3
+  textMesh: {fileID: 1822410826}
+--- !u!4 &1379929602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379929600}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.277227, y: 1.9450564, z: -0.07266013}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1540226672
 GameObject:
   m_ObjectHideFlags: 0
@@ -11338,6 +11384,7 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   movementSpeed: 5
+  isPlayerControl: 0
   Sprite: {fileID: 244618255}
   HurtBox: {fileID: 361569922}
   SelfRigidbody2D: {fileID: 1730101656}
@@ -11348,7 +11395,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730101653}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a8e0347d792b3e42a81036e9e34054f, type: 3}
   m_Name: 
@@ -11362,128 +11409,140 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730101653}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbdc14eea9651417792898b3298a5cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   root:
-    rid: 3852169043750682624
+    rid: 4217919527757021224
   updateType: 0
   references:
     version: 2
     RefIds:
-    - rid: 3852169043750682624
+    - rid: 4217919527757021224
       type: {class: Root, ns: UniBT, asm: UniBT}
       data:
         graphPosition:
           serializedVersion: 2
           x: 0
           y: 0
-          width: 73.6
-          height: 76.8
+          width: 74.85714
+          height: 78.28571
         description: 
         child:
-          rid: 3852169043750682625
-    - rid: 3852169043750682625
+          rid: 4217919527757021225
+    - rid: 4217919527757021225
       type: {class: All, ns: UniBT, asm: UniBT}
       data:
         graphPosition:
           serializedVersion: 2
-          x: 163.2
+          x: 163.42857
           y: 0
-          width: 134.40001
-          height: 118.4
+          width: 135.42857
+          height: 121.71429
         description: 
         children:
-        - rid: 3852169043750682626
-        - rid: 3852169043750682627
-    - rid: 3852169043750682626
+        - rid: 4217919527757021226
+        - rid: 4217919527757021227
+    - rid: 4217919527757021226
       type: {class: DetectEnemyAction, ns: , asm: Assembly-CSharp}
       data:
         graphPosition:
           serializedVersion: 2
-          x: 468.8
+          x: 468.57144
           y: 0
-          width: 160
-          height: 113.6
+          width: 160.57144
+          height: 118.28571
         description: "\u68C0\u6D4B\u534A\u5F84\u5185\u7684\u654C\u4EBA"
         detectionRadius: 10
-    - rid: 3852169043750682627
+    - rid: 4217919527757021227
       type: {class: HasNearestEnemy, ns: , asm: Assembly-CSharp}
       data:
         graphPosition:
           serializedVersion: 2
-          x: 468.8
+          x: 468.57144
           y: 176
-          width: 173.60004
-          height: 114.399994
+          width: 173.71426
+          height: 116.57143
         description: "\u83B7\u53D6\u6700\u8FD1\u7684\u654C\u4EBA"
         dontReEvaluateOnRunning: 0
         child:
-          rid: 3852169043750682628
-    - rid: 3852169043750682628
+          rid: 4217919527757021228
+    - rid: 4217919527757021228
       type: {class: Selector, ns: UniBT, asm: UniBT}
       data:
         graphPosition:
           serializedVersion: 2
-          x: 705.6
+          x: 705.7143
           y: 176
-          width: 174.40002
-          height: 136.79999
+          width: 174.85712
+          height: 163.42857
         description: 
         children:
-        - rid: 3852169043750682629
-        - rid: 3852169043750682630
+        - rid: 4217919527757021229
+        - rid: 4217919527757021230
+        - rid: 4217919527757021231
         abortOnConditionChanged: 1
-    - rid: 3852169043750682629
+    - rid: 4217919527757021229
       type: {class: IsInChasingRange, ns: , asm: Assembly-CSharp}
       data:
         graphPosition:
           serializedVersion: 2
-          x: 967.2
+          x: 967.4286
           y: 140
-          width: 173.60004
-          height: 132
+          width: 173.71423
+          height: 135.99998
         description: "\u4F4D\u4E8E\u68C0\u6D4B\u4E0E\u9003\u8DD1\u534A\u5F84\u4E4B\u95F4"
         dontReEvaluateOnRunning: 0
         child:
-          rid: 3852169043750682631
+          rid: 4217919527757021232
         thresholdRadius: 5
-    - rid: 3852169043750682630
+    - rid: 4217919527757021230
       type: {class: IsInEscapeRange, ns: , asm: Assembly-CSharp}
       data:
         graphPosition:
           serializedVersion: 2
-          x: 967.2
+          x: 967.4286
           y: 292
-          width: 173.60004
-          height: 132
+          width: 173.71423
+          height: 136
         description: "\u4F4D\u4E8E\u9003\u8DD1\u534A\u5F84"
         dontReEvaluateOnRunning: 0
         child:
-          rid: 3852169043750682632
+          rid: 4217919527757021233
         thresholdRadius: 2
-    - rid: 3852169043750682631
+    - rid: 4217919527757021231
+      type: {class: GetInterestPointAction, ns: , asm: Assembly-CSharp}
+      data:
+        graphPosition:
+          serializedVersion: 2
+          x: 967.4286
+          y: 496.5714
+          width: 177.14282
+          height: 117.14288
+        description: 
+        size: 3
+    - rid: 4217919527757021232
       type: {class: ChasingAction, ns: , asm: Assembly-CSharp}
       data:
         graphPosition:
           serializedVersion: 2
-          x: 1164.8
+          x: 1164.5714
           y: 140
-          width: 152.79993
-          height: 113.600006
+          width: 153.71436
+          height: 118.28572
         description: "\u8FFD\u51FB"
         moveSpeed: 3
-    - rid: 3852169043750682632
+    - rid: 4217919527757021233
       type: {class: EscapeAction, ns: , asm: Assembly-CSharp}
       data:
         graphPosition:
           serializedVersion: 2
-          x: 1164.8
+          x: 1164.5714
           y: 292
-          width: 152.79993
-          height: 113.600006
+          width: 153.14282
+          height: 118.285736
         description: "\u9003\u8DD1"
         moveSpeed: 5
 --- !u!1 &1784800264
@@ -11568,6 +11627,103 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1822410826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1822410829}
+  - component: {fileID: 1822410828}
+  - component: {fileID: 1822410827}
+  m_Layer: 0
+  m_Name: Density
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!102 &1822410827
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822410826}
+  m_Text: 99
+  m_OffsetZ: 0
+  m_CharacterSize: 0.1
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 100
+  m_FontStyle: 1
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278190335
+--- !u!23 &1822410828
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822410826}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &1822410829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822410826}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1867591051
 GameObject:
   m_ObjectHideFlags: 0
@@ -11784,3 +11940,5 @@ SceneRoots:
   - {fileID: 646602280}
   - {fileID: 1784800267}
   - {fileID: 1315592005}
+  - {fileID: 1379929602}
+  - {fileID: 1822410829}
