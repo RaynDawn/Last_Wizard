@@ -42,14 +42,25 @@ namespace LastWizard
 							var hurtBox = collider.GetComponent<HurtBox>();
 							if (hurtBox)
                             {
-								if (hurtBox.Owner.CompareTag("Enemy"))
-								{
-									
-									hurtBox.Owner.GetComponent<Enemy>().Hurt(Global.SampleAbilityDamage.Value);
+                                if (hurtBox.Owner.CompareTag("Enemy"))
+                                {
+                                    var enemy = hurtBox.Owner.GetComponent<Enemy>();
+                                    if (enemy != null)
+                                    {
+                                        enemy.Hurt(Global.SampleAbilityDamage.Value);
+                                    }
+                                    else
+                                    {
+                                        var enemyBoss = hurtBox.Owner.GetComponent<EnemyBoss>();
+                                        if (enemyBoss != null)
+                                        {
+                                            enemyBoss.Hurt(Global.SampleAbilityDamage.Value);
+                                        }
+                                    }
 
-									hp--;
+                                    hp--;
 
-									if (hp <= 0)
+                                    if (hp <= 0)
 									{
 										self.DestroyGameObjGracefully();
 									}

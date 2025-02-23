@@ -8,13 +8,12 @@ namespace LastWizard
 		public float movementSpeed = 5;
 		public float dashSpeed = 20;
 		public float health = 30;
-		public float dashDistance = 10;
+		public float dashDistance = 5;
 		public enum States
 		{
 			Following,
 			Warning,
 			Dashing,
-			Attaking,
 			Waiting,
 		}
 
@@ -47,6 +46,7 @@ namespace LastWizard
 				SelfRigidbody2D.velocity = Vector2.zero;
             }).OnUpdate(() =>
             {
+				//£¨»æÖÆ¹¥»÷Â·¾¶£©
 				if(FSM.SecondsOfCurrentState >= 5)
                 {
 					FSM.ChangeState(States.Dashing);

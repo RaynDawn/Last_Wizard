@@ -18,12 +18,16 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
+    BindInfos:
+    - TypeName: UnityEngine.Tilemaps.Tilemap
+      PathToRoot: Tilemap
+      MemberName: Tilemap
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: HitBox
+    ClassName: RepeatTileController
     Namespace: LastWizard
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace LastWizard\r\n{\r\n\tpublic
-      partial class HitBox : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class RepeatTileController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:0049f189-913b-4259-8e45-c0d00e90cbe3\r\nusing UnityEngine;\r\n\r\nnamespace
-      LastWizard\r\n{\r\n\tpublic partial class HitBox\r\n\t{\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:7077168f-62ca-4fdc-a614-0dc2bdf5e2d8\r\nusing UnityEngine;\r\n\r\nnamespace
+      LastWizard\r\n{\r\n\tpublic partial class RepeatTileController\r\n\t{\r\n\r\n\t\tpublic
+      UnityEngine.Tilemaps.Tilemap Tilemap;\r\n\r\n\t}\r\n}\r\n"

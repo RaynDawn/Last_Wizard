@@ -6,14 +6,19 @@ using System.Collections.Generic;
 
 namespace LastWizard
 {
-	[Serializable] //将怪物波次序列化
-	public class EnemyWave
-	{
-		public float GenerateDuration = 1;//波次间隔
-		public GameObject EnemyPrefab;
-		public float GenerateTime = 10;//波次持续时间
-	}
-	public partial class EnemyGenerator : ViewController
+
+    [Serializable] //将怪物波次序列化
+    public class EnemyWave
+    {
+        public string waveName;
+        public bool isActive = true;
+        public float GenerateDuration = 1;//波次间隔
+        public GameObject EnemyPrefab;
+        public float GenerateTime = 10;//波次持续时间
+        public float SpeedScale = 1.0f;//生成敌人的速度比值
+        public float HpScale = 1.0f;//生成敌人的生命比值
+    }
+    public partial class EnemyGenerator : ViewController
 	{
 		private float currentSeconds = 0; //计时器
 		private float lastSeconds = 0; //持续时间

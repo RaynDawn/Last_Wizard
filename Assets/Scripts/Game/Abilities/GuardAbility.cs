@@ -76,10 +76,21 @@ namespace LastWizard
 					{
 						if (hurtBox.Owner.CompareTag("Enemy"))
 						{
-							hurtBox.Owner.GetComponent<Enemy>().Hurt(Global.SampleAbilityDamage.Value);
+							var enemy = hurtBox.Owner.GetComponent<Enemy>();
+							if (enemy != null)
+							{
+								enemy.Hurt(Global.SampleAbilityDamage.Value);
+							}
+							else
+							{
+								var enemyBoss = hurtBox.Owner.GetComponent<EnemyBoss>();
+								if (enemyBoss != null)
+								{
+									enemyBoss.Hurt(Global.SampleAbilityDamage.Value);
+								}
+							}
 						}
 					}
-
 				}).UnRegisterWhenGameObjectDestroyed(self);
 			});
 		}
