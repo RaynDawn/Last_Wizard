@@ -7,10 +7,15 @@ namespace LastWizard
 	{
 		public float movementSpeed = 3;
 		public float health = 3;
-		void Start()
+		public Color dissolveColor = Color.white;
+
+		//public RectTransform healthBar;
+        void Start()
 		{
 			// Code Here
 			Global.EnemyCount.Value++;
+
+			
 		}
 
         private void OnDestroy()
@@ -35,12 +40,20 @@ namespace LastWizard
 			if(health <= 0 )
             {
 				this.DestroyGameObjGracefully();
-				
-				Global.GenerateDrop(gameObject);
-			}
+				FXController.Play(Sprite, dissolveColor);
+                Global.GenerateDrop(gameObject);
+				if(Player.Default)
+                {
+                    Global.Anger.Value++;
+                }
+                
+            }
 		 }
 		 private bool IgnoreHurt = false;
-		public void Hurt(float value)
+
+
+
+        public void Hurt(float value)
         {
 			if (IgnoreHurt) return;
 			TextController.PlayFloatingText(transform.position, value.ToString());
@@ -51,9 +64,21 @@ namespace LastWizard
 					this.Sprite.color = Color.white;
 					this.health -= value;
 					IgnoreHurt = false;
+
+					//UpdateHealthBar();
 				}).Start(this);
 			
 			
 		}
-	}
+
+      /*  private void UpdateHealthBar()
+        {
+            if (healthBar != null)
+            {
+                float healthPercentage = health / 3.0f; 
+                healthBar.sizeDelta = new Vector3(healthPercentage, 1, 1);
+
+            }
+        }*/
+    }
 }

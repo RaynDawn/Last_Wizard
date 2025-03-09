@@ -1,4 +1,4 @@
-// Generate Id:750a3685-cfb1-48fa-9db0-bf862893ff62
+// Generate Id:6291f95b-b023-4b0c-9275-e4a9ccfa4145
 using UnityEngine;
 
 namespace LastWizard

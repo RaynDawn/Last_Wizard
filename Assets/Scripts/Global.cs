@@ -24,6 +24,10 @@ namespace LastWizard
         public static BindableProperty<float> DestroyTime = new BindableProperty<float>(10);//炸弹引信延时时间
         public static BindableProperty<float> CritRate = new BindableProperty<float>(0.1f);//暴击率
         public static BindableProperty<int> GuardNum = new BindableProperty<int>(0);
+        public static BindableProperty<int> EnemyBossHealth = new BindableProperty<int>(50);
+        public static BindableProperty<int> EnemyBossMaxHealth = new BindableProperty<int>(50);
+        public static BindableProperty<int> Anger = new BindableProperty<int>(0);
+        public static BindableProperty<int> MaxAnger = new BindableProperty<int>(100);
 
         #endregion 
 
@@ -37,13 +41,18 @@ namespace LastWizard
             BombAbilityRate.Value = 5;
             CurrentTime.Value = 0;
             EnemyCount.Value = 0;
-            MaxHp.Value = 5;
+            MaxHp.Value = 10;
             Hp.Value = MaxHp.Value;
             BombAbilityDamage.Value = 99;
             BombAbilityRange.Value = 5;
             DestroyTime.Value = 10;
             CritRate.Value = 0.1f;
             GuardNum.Value = 0;
+            EnemyBossMaxHealth.Value = 30;
+            EnemyBossHealth.Value = EnemyBossMaxHealth.Value;
+            Anger.Value = 0;
+            MaxAnger.Value = 100;
+            Coin.Value = 0;
         }
 
         public static int LevelUpExp()

@@ -7,9 +7,14 @@ namespace LastWizard
 	{
 		public float movementSpeed = 5;
 		public float dashSpeed = 20;
-		public float health = 30;
+		public int health = 30;
 		public float dashDistance = 5;
-		public enum States
+       
+      
+      
+
+
+        public enum States
 		{
 			Following,
 			Warning,
@@ -21,7 +26,9 @@ namespace LastWizard
 		void Start()
 		{
 			// Code Here
-			Global.EnemyCount.Value++;
+			UIKit.OpenPanel<EnemyBossHealthBarPanel>(new EnemyBossHealthBarPanelData());
+			Global.EnemyBossHealth.Value = health;
+            Global.EnemyCount.Value++;
 			FSM.State(States.Following).OnFixedUpdate(() =>
             {
 
@@ -85,7 +92,9 @@ namespace LastWizard
 		private void OnDestroy()
 		{
 			Global.EnemyCount.Value--;
-		}
+       
+			UIKit.ClosePanel<EnemyBossHealthBarPanel>();
+        }
 
 		
 
@@ -99,8 +108,11 @@ namespace LastWizard
 			if (health <= 0)
 			{
 				this.DestroyGameObjGracefully();
-
-				Global.GenerateDrop(gameObject);
+                if (Player.Default)
+                {
+                    Global.Anger.Value++;
+                }
+                Global.GenerateDrop(gameObject);
 			}
 		}
 		private bool IgnoreHurt = false;
@@ -113,7 +125,7 @@ namespace LastWizard
 			ActionKit.Delay(0.3f, () =>
 			{
 				this.Sprite.color = Color.white;
-				this.health -= value;
+                Global.EnemyBossHealth.Value -= (int)value;
 				IgnoreHurt = false;
 			}).Start(this);
 

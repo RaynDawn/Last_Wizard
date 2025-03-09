@@ -19,6 +19,8 @@ namespace LastWizard
 				if(Input.GetKeyUp(KeyCode.Escape))
                 {
 					SceneManager.LoadScene("SampleScene");
+					
+					
 					this.CloseSelf();
 					Global.ResetData();
 				}

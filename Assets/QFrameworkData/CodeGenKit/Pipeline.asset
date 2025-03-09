@@ -19,15 +19,15 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: UnityEngine.Tilemaps.Tilemap
-      PathToRoot: Tilemap
-      MemberName: Tilemap
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: RepeatTileController
+    - TypeName: LastWizard.HealArea
+      PathToRoot: HealArea
+      MemberName: HealArea
+    ScriptsFolder: Assets/Scripts/Game/Abilities
+    ClassName: ItemSpawner
     Namespace: LastWizard
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace LastWizard\r\n{\r\n\tpublic
-      partial class RepeatTileController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class ItemSpawner : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:7077168f-62ca-4fdc-a614-0dc2bdf5e2d8\r\nusing UnityEngine;\r\n\r\nnamespace
-      LastWizard\r\n{\r\n\tpublic partial class RepeatTileController\r\n\t{\r\n\r\n\t\tpublic
-      UnityEngine.Tilemaps.Tilemap Tilemap;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:c192d3e3-7c53-45cc-8d2a-a585ff10dbc1\r\nusing UnityEngine;\r\n\r\nnamespace
+      LastWizard\r\n{\r\n\tpublic partial class ItemSpawner\r\n\t{\r\n\r\n\t\tpublic
+      LastWizard.HealArea HealArea;\r\n\r\n\t}\r\n}\r\n"

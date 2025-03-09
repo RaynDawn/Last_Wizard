@@ -17,7 +17,8 @@ namespace LastWizard
 			Global.Hp.RegisterWithInitValue(hp =>
 			{
 				HpText.text = "HP: " + Global.Hp.Value + "/" + Global.MaxHp.Value;
-			}).UnRegisterWhenGameObjectDestroyed(gameObject);//每次生命值变更时回调执行
+              
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);//每次生命值变更时回调执行
 
 			Global.MaxHp.RegisterWithInitValue(maxhp =>
 			{
@@ -27,9 +28,18 @@ namespace LastWizard
 			Global.Exp.RegisterWithInitValue(exp =>
 			{
 				ExpText.text = "EXP: " + exp + "/" + Global.LevelUpExp();
+				
             }).UnRegisterWhenGameObjectDestroyed(gameObject);//每次经验值变更时回调执行
 
-			Global.Lv.RegisterWithInitValue(lv =>
+            Global.Anger.RegisterWithInitValue(anger =>
+            {
+                AngerText.text = "ANGER: " + anger + "/" + Global.MaxAnger.Value;
+                var sizeDelta = AngerValue.rectTransform.sizeDelta;
+                sizeDelta.y = 900 * anger / (float)Global.MaxAnger.Value;
+                AngerValue.rectTransform.sizeDelta = sizeDelta;
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);//每次怒气值变更时回调执行
+
+            Global.Lv.RegisterWithInitValue(lv =>
 			{
 				LvText.text = "LV: " + lv;
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);//每次等级变更时回调执行
@@ -75,12 +85,10 @@ namespace LastWizard
                 }
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 
-			Global.Coin.Value = PlayerPrefs.GetInt("coins", 0);
+			
 
 			Global.Coin.RegisterWithInitValue(coins =>//金币数量
 			{
-				PlayerPrefs.SetInt(nameof(coins), coins);
-
 				CoinText.text = "COIN: " + coins;
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 			

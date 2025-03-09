@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1514d3eee086b94a947ffb21e750052, type: 3}
+  m_Name: Enemy Wave 1
+  m_EditorClassIdentifier: 
+  enemyWaveGroups:
+  - groupName: First Wave
+    groupTime: 90
+    groupDescription: 
+    enemyWaves:
+    - waveName: Ghost
+      isActive: 1
+      GenerateDuration: 1
+      EnemyPrefab: {fileID: 3910422708401083309, guid: c49f178eb0a038d44aa5b7cd884e0e60, type: 3}
+      GenerateTime: 40
+      SpeedScale: 1
+      HPScale: 1
+    - waveName: Bat
+      isActive: 1
+      GenerateDuration: 0.8
+      EnemyPrefab: {fileID: 5849810210365013373, guid: 7178d8bfc7dd17448ab245c5de3e8ca2, type: 3}
+      GenerateTime: 30
+      SpeedScale: 1
+      HPScale: 1
+    - waveName: Spider
+      isActive: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 1815364657676147438, guid: 554da5bcf35253e43bbcee358f5a0169, type: 3}
+      GenerateTime: 6
+      SpeedScale: 1
+      HPScale: 1
+    - waveName: Ghost
+      isActive: 1
+      GenerateDuration: 0.8
+      EnemyPrefab: {fileID: 3910422708401083309, guid: c49f178eb0a038d44aa5b7cd884e0e60, type: 3}
+      GenerateTime: 40
+      SpeedScale: 1
+      HPScale: 1
+    - waveName: Spider
+      isActive: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 1815364657676147438, guid: 554da5bcf35253e43bbcee358f5a0169, type: 3}
+      GenerateTime: 6
+      SpeedScale: 1
+      HPScale: 1
+    - waveName: Slime
+      isActive: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 3765004784465602766, guid: e54e7fe5efdff3b48a33be174948f542, type: 3}
+      GenerateTime: 6
+      SpeedScale: 1
+      HPScale: 1

@@ -10,7 +10,20 @@ namespace LastWizard
 			// Code Here
 			UIKit.OpenPanel<GamePanel>();
 		}
+        private void Update()
+        {
+           /* if(EnemyBoss.Default)
+            {
+                UIKit.OpenPanel<EnemyBossHealthBarPanel>();
+              
+            }
+            else
+            {
+                UIKit.ClosePanel<EnemyBossHealthBarPanel>();
+            }*/
 
+
+        }
         private void OnDestroy()
         {
             UIKit.ClosePanel<GamePanel>();
