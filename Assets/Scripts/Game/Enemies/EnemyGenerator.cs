@@ -81,11 +81,9 @@ namespace LastWizard
             {
 				currentSeconds += Time.deltaTime;
 				lastSeconds += Time.deltaTime;
-
 				if (currentSeconds >= currentWave.GenerateDuration) //每隔一段时间生成一波敌人
                 {
 					currentSeconds = 0;
-					
                     var player = Player.Default;
 					if (player != null)
 					{
@@ -93,16 +91,13 @@ namespace LastWizard
 						var randomRadius = randomAngel * Mathf.Deg2Rad;
 						var direction = new Vector3(Mathf.Cos(randomRadius), Mathf.Sin(randomRadius));
 						var generatePos = player.transform.position + direction * genrateDistance; //生成位置
-
 						currentWave.EnemyPrefab.Instantiate().Position(generatePos).Self(self =>
 						{
                             self.GetComponent<Enemy>().movementSpeed *= currentWave.SpeedScale;
                             self.GetComponent<Enemy>().health *= currentWave.HPScale;
                         }).Show(); //从当前波次中生成当前的敌人
-						
                     }
 				}
-
 				if (lastSeconds >= currentWave.GenerateTime)//波次持续时间达到该波次的最大时长时重置波次
 				{
 					currentWave = null;

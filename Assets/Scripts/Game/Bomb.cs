@@ -52,7 +52,7 @@ namespace LastWizard
                     {
                         if (hurtBox.Owner.CompareTag("Enemy"))
                         {
-                            hurtBox.Owner.GetComponent<Enemy>().Hurt(Global.BombAbilityDamage.Value);
+                            hurtBox.Owner.GetComponent<IEnemy>().Hurt(Global.BombAbilityDamage.Value);
                         }
                     }
                 }

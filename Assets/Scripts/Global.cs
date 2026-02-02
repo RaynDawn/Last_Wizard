@@ -41,9 +41,9 @@ namespace LastWizard
             BombAbilityRate.Value = 5;
             CurrentTime.Value = 0;
             EnemyCount.Value = 0;
-            MaxHp.Value = 10;
+            MaxHp.Value = 100;
             Hp.Value = MaxHp.Value;
-            BombAbilityDamage.Value = 99;
+            BombAbilityDamage.Value = 20;
             BombAbilityRange.Value = 5;
             DestroyTime.Value = 10;
             CritRate.Value = 0.1f;
@@ -62,34 +62,42 @@ namespace LastWizard
 
         public static void GenerateDrop(GameObject gameObject)
         {
-            var random = Random.Range(0, 100f);
-            if(random <= 90)
+            if (gameObject == null) return;
+
+            // 概率（百分比），可按需调整，合计不必强制为 100，但推荐如此以便直观理解
+            const float probExp = 90f;
+            const float probCoin = 5f;
+            const float probHP = 3f;
+            const float probGetAllExp = 2f;
+
+            // 使用单次随机并按累积区间判断，避免多次独立随机导致的条件概率混淆
+            float r = Random.Range(0f, 100f);
+
+            if (r < probExp)
             {
                 DropManager.Default.EXP.Instantiate().Position(gameObject.Position()).Show(); //生成经验掉落
                 return;
             }
-            
-            random = Random.Range(0, 100f);
-            if (random <= 5)
+
+            if (r < probExp + probCoin)
             {
                 DropManager.Default.Coin.Instantiate().Position(gameObject.Position()).Show();//生成金币
                 return;
             }
 
-            random = Random.Range(0, 100f);
-            if (random <= 30)
+            if (r < probExp + probCoin + probHP)
             {
                 DropManager.Default.HP.Instantiate().Position(gameObject.Position()).Show();//生成血瓶
                 return;
             }
 
-            random = Random.Range(0, 100f);
-            if(random <= 5)
+            if (r < probExp + probCoin + probHP + probGetAllExp)
             {
                 DropManager.Default.GetAllExp.Instantiate().Position(gameObject.Position()).Show();//生成经验自动拾取
                 return;
             }
-               
+
+            // 如果总概率小于 100%，这里可选择什么也不生成或作为默认处理；当前实现为不生成任何掉落。
         }
 
         public static void AutoInit()

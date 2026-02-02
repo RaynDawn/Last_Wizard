@@ -18,9 +18,9 @@ namespace LastWizard
         void Update()
         {
           
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
-                if(Global.Anger.Value < 10)
+                if(Global.Anger.Value < 30)
                 {
                     return;
                 }
@@ -30,7 +30,7 @@ namespace LastWizard
                 Global.Anger.Value -=10;
             }
 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0))
             {
                if (Global.Anger.Value < 10)
                 {
@@ -44,6 +44,10 @@ namespace LastWizard
 
             if(Input.GetMouseButtonDown(2))
                 {
+                if (Global.Anger.Value < 100)
+                {
+                    return;
+                }
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mousePosition.z = 0;
                 Instantiate(enemyPrefab3, mousePosition, Quaternion.identity);
@@ -53,6 +57,11 @@ namespace LastWizard
             if(Input.GetKeyDown(KeyCode.C))
             {
                 Global.Anger.Value += 10;
+            }
+
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                Global.Coin.Value += 10;
             }
         }
     }

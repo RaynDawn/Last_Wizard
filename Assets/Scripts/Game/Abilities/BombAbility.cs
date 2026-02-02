@@ -15,29 +15,32 @@ namespace LastWizard
         private void Update()
         {
 			mCurrentSeconds += Time.deltaTime;
-
-			if (mCurrentSeconds >= Global.BombAbilityRate.Value) //技能间隔
+			if(Global.Lv.Value >= 5)
 			{
-				mCurrentSeconds = 0;
+                if (mCurrentSeconds >= Global.BombAbilityRate.Value) //技能间隔
+                {
+                    mCurrentSeconds = 0;
 
-				Bomb.Instantiate().Show().Position(this.Position()).Self(self =>
-					{
-						self.transform.SetParent(null);
-						
-						var rigibody2D = self.GetComponent<Rigidbody2D>();
+                    Bomb.Instantiate().Show().Position(this.Position()).Self(self =>
+                    {
+                        self.transform.SetParent(null);
 
-						var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+                        var rigibody2D = self.GetComponent<Rigidbody2D>();
 
-						var finalDir = Vector2.zero;
+                        var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
 
-						foreach (var enemy in enemies)
-						{
-							finalDir += (Vector2)(transform.position - enemy.transform.position);
-						}
+                        var finalDir = Vector2.zero;
 
-						rigibody2D.AddForce(bombSpeed * -finalDir.normalized, ForceMode2D.Impulse);
-					});
-			}
+                        foreach (var enemy in enemies)
+                        {
+                            finalDir += (Vector2)(transform.position - enemy.transform.position);
+                        }
+
+                        rigibody2D.AddForce(bombSpeed * -finalDir.normalized, ForceMode2D.Impulse);
+                    });
+                }
+            }
+			
 		}
 
     }

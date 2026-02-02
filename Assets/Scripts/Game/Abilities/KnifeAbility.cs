@@ -13,6 +13,7 @@ namespace LastWizard
 		void Start()
 		{
 			// Code Here
+
 		}
         private void Update()
         {

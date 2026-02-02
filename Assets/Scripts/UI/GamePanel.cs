@@ -12,6 +12,7 @@ namespace LastWizard
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as GamePanelData ?? new GamePanelData();
+			UIKit.Root.SetResolution(1920, 1080, 0.5f);
 			// please add init code here
 			
 			Global.Hp.RegisterWithInitValue(hp =>
@@ -46,8 +47,10 @@ namespace LastWizard
 
 			Global.Lv.Register(lv =>
 			{
-				Time.timeScale = 0;//升级时游戏暂停
-				UpgradeRoot.Show();//升级时弹出升级选项
+				//Time.timeScale = 0;//升级时游戏暂停
+				//UpgradeRoot.Show();//升级时弹出升级选项
+				
+
 
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);//初始化之后的每一次等级变更时执行
 

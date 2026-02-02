@@ -18,9 +18,23 @@ namespace LastWizard
 
         void Start()
 		{
-			// Code Here
-			
-		}
+            // Code Here
+            Global.Lv.Register(lv =>
+            {
+
+                if (Global.Lv.Value >= 3)
+                {
+
+                    if (Global.GuardNum.Value <= 4)
+                        Global.GuardNum.Value++;
+
+                }
+                transform.rotation = Quaternion.Euler(0, 0, Time.time * 60);
+
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);//初始化之后的每一次等级变更时执行
+
+        }
 
 		public void GuardUpgrade(int num)
         {
@@ -89,15 +103,8 @@ namespace LastWizard
 
         private void Update()
         {
-			mCurrentSeconds += Time.deltaTime;
-			if (mCurrentSeconds >= 10)
-            {
-				mCurrentSeconds = 0;
-				if (Global.GuardNum.Value <= 3)
-					Global.GuardNum.Value++;
-
-			}
-			transform.rotation = Quaternion.Euler(0, 0, Time.time * 60);
+			
+			
 
 		}
     }

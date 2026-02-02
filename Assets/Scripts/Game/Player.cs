@@ -60,6 +60,14 @@ namespace LastWizard
             Global.Lv.RegisterWithInitValue(lv =>
             {
                 LvText.text = "LV: " + lv;
+                if(lv > 1)
+                {
+                    Global.MaxHp.Value += 50;
+                    movementSpeed += 1;
+                    Global.SampleAbilityDamage.Value += 1;
+                }
+               
+                
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
             Global.Hp.RegisterWithInitValue(hp =>

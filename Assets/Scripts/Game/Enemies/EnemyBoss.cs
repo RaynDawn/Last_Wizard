@@ -10,10 +10,6 @@ namespace LastWizard
 		public int health = 30;
 		public float dashDistance = 5;
        
-      
-      
-
-
         public enum States
 		{
 			Following,
@@ -53,7 +49,6 @@ namespace LastWizard
 				SelfRigidbody2D.velocity = Vector2.zero;
             }).OnUpdate(() =>
             {
-				//£¨»æÖÆ¹¥»÷Â·¾¶£©
 				if(FSM.SecondsOfCurrentState >= 5)
                 {
 					FSM.ChangeState(States.Dashing);
@@ -96,7 +91,6 @@ namespace LastWizard
 			UIKit.ClosePanel<EnemyBossHealthBarPanel>();
         }
 
-		
 
 		private void FixedUpdate()
 		{

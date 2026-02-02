@@ -12168,26 +12168,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1379929602}
-  - component: {fileID: 1379929601}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: InterestPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1379929601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1379929600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8823e11ae96ee7749b96fcbe91ed0781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1379929602
 Transform:
   m_ObjectHideFlags: 0
@@ -13062,7 +13049,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   ExpBar: {fileID: 0}
   lastHp: 10
-  isPlayerControl: 1
+  isPlayerControl: 0
   Sprite: {fileID: 244618255}
   HurtBox: {fileID: 361569923}
   HpValue: {fileID: 915375380}
@@ -13077,7 +13064,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730101653}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a8e0347d792b3e42a81036e9e34054f, type: 3}
   m_Name: 
@@ -13091,7 +13078,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730101653}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbdc14eea9651417792898b3298a5cbb, type: 3}
   m_Name: 
